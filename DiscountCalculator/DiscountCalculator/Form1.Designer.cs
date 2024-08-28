@@ -57,6 +57,7 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "$";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox1.TextChanged += new System.EventHandler(this.priceBox_textChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceBox_KeyPress);
             // 
             // textBox_total
