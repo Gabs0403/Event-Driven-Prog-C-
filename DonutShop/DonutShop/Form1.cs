@@ -212,8 +212,9 @@ namespace DonutShop
             }
 
             txtSubtotal.Text = price.ToString("c");
-            decimal finalPrice = price + (price * (nuTax.Value / 100));
-            txtTotal.Text = finalPrice.ToString("c");
+           
+            
+            txtTotal.Text = calculateTotal(price);
             updateChangeDue();
 
         }
@@ -254,6 +255,13 @@ namespace DonutShop
             {
                 e.Handled = true;
             }
+        }
+
+        private string calculateTotal(decimal subtotal)
+        {
+            decimal finalPrice = subtotal + (subtotal * (nuTax.Value / 100));
+
+            return finalPrice.ToString("c");
         }
     }
 }
