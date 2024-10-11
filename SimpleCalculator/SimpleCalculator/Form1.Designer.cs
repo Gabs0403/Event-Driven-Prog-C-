@@ -49,8 +49,8 @@
             btnFunc1 = new Button();
             btnFunc2 = new Button();
             brnFunc3 = new Button();
-            button9 = new Button();
-            button10 = new Button();
+            btnClear = new Button();
+            btnDelete = new Button();
             listView1 = new ListView();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -97,6 +97,8 @@
             txtFirst.Name = "txtFirst";
             txtFirst.Size = new Size(125, 27);
             txtFirst.TabIndex = 4;
+            txtFirst.Enter += txtFirst_Enter;
+            txtFirst.KeyPress += txtFirst_KeyPress;
             // 
             // txtSecond
             // 
@@ -104,11 +106,14 @@
             txtSecond.Name = "txtSecond";
             txtSecond.Size = new Size(125, 27);
             txtSecond.TabIndex = 5;
+            txtSecond.Enter += txtSecond_Enter;
+            txtSecond.KeyPress += txtSecond_KeyPress;
             // 
             // txtResult
             // 
             txtResult.Location = new Point(405, 61);
             txtResult.Name = "txtResult";
+            txtResult.ReadOnly = true;
             txtResult.Size = new Size(125, 27);
             txtResult.TabIndex = 6;
             // 
@@ -247,6 +252,7 @@
             btnFunc1.TabIndex = 16;
             btnFunc1.Text = "Move result to first operand";
             btnFunc1.UseVisualStyleBackColor = true;
+            btnFunc1.Click += btnFunc1_Click;
             // 
             // btnFunc2
             // 
@@ -256,6 +262,7 @@
             btnFunc2.TabIndex = 17;
             btnFunc2.Text = "Clear all calculation field";
             btnFunc2.UseVisualStyleBackColor = true;
+            btnFunc2.Click += btnFunc2_Click;
             // 
             // brnFunc3
             // 
@@ -265,28 +272,32 @@
             brnFunc3.TabIndex = 18;
             brnFunc3.Text = "Clear current Field";
             brnFunc3.UseVisualStyleBackColor = true;
+            brnFunc3.Click += brnFunc3_Click;
             // 
-            // button9
+            // btnClear
             // 
-            button9.Location = new Point(566, 339);
-            button9.Name = "button9";
-            button9.Size = new Size(222, 41);
-            button9.TabIndex = 19;
-            button9.Text = "Clear History";
-            button9.UseVisualStyleBackColor = true;
+            btnClear.Location = new Point(566, 339);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(222, 41);
+            btnClear.TabIndex = 19;
+            btnClear.Text = "Clear History";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
-            // button10
+            // btnDelete
             // 
-            button10.Location = new Point(566, 386);
-            button10.Name = "button10";
-            button10.Size = new Size(222, 41);
-            button10.TabIndex = 20;
-            button10.Text = "Delete Selected Item";
-            button10.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(566, 386);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(222, 41);
+            btnDelete.TabIndex = 20;
+            btnDelete.Text = "Delete Selected Item";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // listView1
             // 
             listView1.Location = new Point(566, 61);
+            listView1.MultiSelect = false;
             listView1.Name = "listView1";
             listView1.Size = new Size(222, 266);
             listView1.TabIndex = 21;
@@ -299,8 +310,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(listView1);
-            Controls.Add(button10);
-            Controls.Add(button9);
+            Controls.Add(btnDelete);
+            Controls.Add(btnClear);
             Controls.Add(brnFunc3);
             Controls.Add(btnFunc2);
             Controls.Add(btnFunc1);
@@ -320,8 +331,11 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Calculator";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -351,8 +365,8 @@
         private Button btnFunc1;
         private Button btnFunc2;
         private Button brnFunc3;
-        private Button button9;
-        private Button button10;
+        private Button btnClear;
+        private Button btnDelete;
         private ListView listView1;
     }
 }
